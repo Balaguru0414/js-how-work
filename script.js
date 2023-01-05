@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 /*const calcAge = function(birthyear) {
 	const age = 2022 - birthyear;
@@ -56,6 +56,8 @@ const year = 2000;
 // console.log(addDecl(3,5));
 // console.log(addExpr(3,5));
 // console.log(addArrow(3,5));
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 // functions
 
@@ -137,7 +139,136 @@ surya.calcAge();
 const f = bala.calcAge;  // this is take a calcAge functions
 f();                     // this is not a regular function ( error )
 
+
+var firstName = 'Surya'
+
+const bala = {
+	firstName : 'Bala',
+	year : 2000,
+	calcAge:function () {
+		console.log(this);				// it's work (bala is the owner) in console
+		console.log(2022 - this.year);  // this.year = bala.year ( 2000 )  
+		
+		// 1. solution set variable to avoid error
+
+		// const self = this; 
+		// const you2kkid = function () {
+		// 	console.log(self);  // this key word take a - this object
+		// 	console.log(self.year >= 2000 && self.year <= 2010);
+		
+		// };
+		
+		// 2. solution crate a arrow function
+
+		const you2kkid =  () => {			
+			console.log(this);  // this key word take a glbal varable
+			console.log(this.year >= 2000 && this.year <= 2010);
+		};
+		you2kkid();
+	},
+	greet: () => {
+	console.log(this);
+	console.log(`Hey ${this.firstName}`); // arrow function cannot defined firstName - its only take a global Variable
+	}
+};
+// bala.greet();
+bala.calcAge();
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+//  --- Argument - key word ---
+
+const addExpr = function (a,b) {  	
+	console.log(arguments);
+	return a+b;
+}
+console.log(addExpr(2,3));
+
+var addArrow = (a,b) => {
+	// console.log(arguments);
+	return a+b;
+}
+console.log(addArrow(2,4));
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+// primitive types -----------
+
+let age = 22;
+let oldAge = age;
+age = 23;
+
+console.log(`Age is ${age}`);
+console.log(`oldAge is ${oldAge}`);
+
+// Reference type -------------
+
+const me = {						// STORE IN HEAP
+	name:'bala',
+	age:22,
+}
+
+const friend = me;
+friend.age = 25;
+
+console.log(' me: ',me); 			// value display
+console.log(' friend: ',friend);	// typeof object only display 
+
+
+// primitive type -----------
+
+let lastName = 'Guru';
+let oldLastName = lastName;
+lastName = 'Raja';
+
+console.log(lastName,oldLastName);
+
+// reference type -------------
+
+const jessica = {
+	firstName : 'jessica',
+	lastName : 'Williams',
+	age : 27,
+}
+
+const marriedJessica =jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before Marriage:',jessica);
+console.log('After marriage:',jessica);
+
+// copying object 
+
+const jessica = {
+	firstName : 'jessica',
+	lastName : 'Williams',
+	age : 27,
+	family: ['Alice','Bob'],
+}
+
+const jessicaCopy = Object.assign( {} , jessica );  // copy jessica in different address
+jessicaCopy.lastName = 'Davis';
+
+jessicaCopy.family.push('Abi');						// also chaged the jessica object 
+jessicaCopy.family.push('Mari');					// also chaged the jessica object 
+
+console.log('Before Marriage:',jessica);            
+console.log('After marriage:',jessicaCopy);	   		
+
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
